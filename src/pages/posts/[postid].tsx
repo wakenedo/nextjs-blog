@@ -13,6 +13,10 @@ interface CommentsProps {
 
 export default function Post({ comments } : CommentsProps) {
     const router = useRouter();
+
+    if(router.isFallback) {
+      return <p>Loading...</p>
+    }
     
     return (
         <>
@@ -28,18 +32,18 @@ export default function Post({ comments } : CommentsProps) {
 
   //ISG Incrmental Static Genaration
   export const getStaticPaths: GetStaticPaths = async () => {
-    const response = await fetch('http://localhost:3333/posts');
-    const posts = await response.json();
-  
-    const paths = posts.map(post => {
-      return {
-        params: { postid: String(post.id) },
-      };
-    });
+    // const response = await fetch('http://localhost:3333/posts');
+    // const posts = await response.json();
+    //
+    // const paths = posts.map(post => {
+    //  return {
+    //    params: { postid: String(post.id) },
+    //  };
+    //});
   
     return {
-      paths,
-      fallback: false,
+      paths: [],
+      fallback: true,
     };
   };
 
