@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next"
+import SEO from "../../components/SEO";
 
 //Ocorre no processo de build a montagem dos HTMLs
 
@@ -14,6 +15,7 @@ interface PostsProps {
 export default function Posts({ posts } : PostsProps) {
     return (
       <div>
+        <SEO title='Posts' />
         <h1>Listagem de Posts</h1>
         <ul>
         {posts.map((post) => (
