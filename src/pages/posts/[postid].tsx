@@ -41,6 +41,7 @@ export default function Post({ comments } : CommentsProps) {
     //  };
     //});
   
+    //This way we gain performance, without interfering with the dynamic features  
     return {
       paths: [],
       fallback: true,
